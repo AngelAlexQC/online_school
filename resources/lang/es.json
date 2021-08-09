@@ -1,4 +1,20 @@
 {
+    "Apps": "Administración",
+    "Profile Information": "Información de Usuario",
+    "Update your account's profile information and email address.": "Actualice la información de perfil y la dirección de correo electrónico de su cuenta.",
+    "Access Management": "Control de Acceso",
+    "Dashboard": "Inicio",
+    "Schools": "Escuelas",
+    "Careers": "Carreras",
+    "Mallas": "Mallas Curriculares",
+    "Matters": "Materias",
+    "Courses": "Cursos",
+    "Admissions": "Admisiones",
+    "Course Classes": "Sesiones de Clase",
+    "Comments": "Comentarios",
+    "Users": "Usuarios",
+    "Enrollments": "Estudiantes",
+    "Permissions": "Permisos",
     "E-Mail Address": "Correo electrónico",
     "Password": "Contraseña",
     "Remember Me": "Recuérdame",
@@ -29,5 +45,5 @@
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
     "If you did not receive the email": "Si no has recibido el email",
     "click here to request another": "pulsa aquí para que te enviemos otro",
-    "All rights reserved.":  "Todos los derechos reservados."
+    "All rights reserved.": "Todos los derechos reservados."
 }

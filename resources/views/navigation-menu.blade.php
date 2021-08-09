@@ -17,71 +17,71 @@
                     </x-jet-nav-link>
                 </div>
 
-                <x-nav-dropdown title="Apps" align="right" width="48">
+                <x-nav-dropdown title="{{ __('Apps') }}" align="right" width="48">
                         @can('view-any', App\Models\School::class)
                         <x-dropdown-link href="{{ route('schools.index') }}">
-                        Schools
+                        {{ __('Schools') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\Career::class)
                         <x-dropdown-link href="{{ route('careers.index') }}">
-                        Careers
+                        {{ __('Careers') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\Malla::class)
                         <x-dropdown-link href="{{ route('mallas.index') }}">
-                        Mallas
+                        {{ __('Mallas') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\Matter::class)
                         <x-dropdown-link href="{{ route('matters.index') }}">
-                        Matters
+                        {{ __('Matters') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\Course::class)
                         <x-dropdown-link href="{{ route('courses.index') }}">
-                        Courses
+                        {{ __('Courses') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\Admission::class)
                         <x-dropdown-link href="{{ route('admissions.index') }}">
-                        Admissions
+                        {{ __('Admissions') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\CourseClass::class)
                         <x-dropdown-link href="{{ route('course-classes.index') }}">
-                        Course Classes
+                        {{ _('Course Classes') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\Comment::class)
                         <x-dropdown-link href="{{ route('comments.index') }}">
-                        Comments
+                        {{ __('Comments') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\User::class)
                         <x-dropdown-link href="{{ route('users.index') }}">
-                        Users
+                        {{ __('Users') }}
                         </x-dropdown-link>
                         @endcan
                         @can('view-any', App\Models\Enrollment::class)
                         <x-dropdown-link href="{{ route('enrollments.index') }}">
-                        Enrollments
+                        {{ __('Enrollments') }}
                         </x-dropdown-link>
                         @endcan
                 </x-nav-dropdown>
 
-                    @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) || 
+                    @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
                         Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
-                    <x-nav-dropdown title="Access Management" align="right" width="48">
-                        
+                    <x-nav-dropdown title="{{ __('Access Management') }}" align="right" width="48">
+
                         @can('view-any', Spatie\Permission\Models\Role::class)
                         <x-dropdown-link href="{{ route('roles.index') }}">Roles</x-dropdown-link>
                         @endcan
 
                         @can('view-any', Spatie\Permission\Models\Permission::class)
-                        <x-dropdown-link href="{{ route('permissions.index') }}">Permissions</x-dropdown-link>
+                        <x-dropdown-link href="{{ route('permissions.index') }}">{{ __('Permissions') }}</x-dropdown-link>
                         @endcan
-                        
+
                     </x-nav-dropdown>
                     @endif
             </div>
@@ -209,10 +209,10 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
-            
+
                 @can('view-any', App\Models\School::class)
                 <x-jet-responsive-nav-link href="{{ route('schools.index') }}">
-                Schools
+                {{ __('Schools') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\Career::class)
@@ -222,56 +222,56 @@
                 @endcan
                 @can('view-any', App\Models\Malla::class)
                 <x-jet-responsive-nav-link href="{{ route('mallas.index') }}">
-                Mallas
+                {{ __('Mallas') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\Matter::class)
                 <x-jet-responsive-nav-link href="{{ route('matters.index') }}">
-                Matters
+                {{ __('Matters') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\Course::class)
                 <x-jet-responsive-nav-link href="{{ route('courses.index') }}">
-                Courses
+                {{ __('Courses') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\Admission::class)
                 <x-jet-responsive-nav-link href="{{ route('admissions.index') }}">
-                Admissions
+                {{ __('Admissions') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\CourseClass::class)
                 <x-jet-responsive-nav-link href="{{ route('course-classes.index') }}">
-                Course Classes
+                {{ _('Course Classes') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\Comment::class)
                 <x-jet-responsive-nav-link href="{{ route('comments.index') }}">
-                Comments
+                {{ ('Comments') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\User::class)
                 <x-jet-responsive-nav-link href="{{ route('users.index') }}">
-                Users
+                {{ __('Users') }}
                 </x-jet-responsive-nav-link>
                 @endcan
                 @can('view-any', App\Models\Enrollment::class)
                 <x-jet-responsive-nav-link href="{{ route('enrollments.index') }}">
-                Enrollments
+                {{ __('Enrollments') }}
                 </x-jet-responsive-nav-link>
                 @endcan
 
-                @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) || 
+                @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
                     Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
-                    
+
                     @can('view-any', Spatie\Permission\Models\Role::class)
                     <x-jet-responsive-nav-link href="{{ route('roles.index') }}">Roles</x-jet-responsive-nav-link>
                     @endcan
 
                     @can('view-any', Spatie\Permission\Models\Permission::class)
-                    <x-jet-responsive-nav-link href="{{ route('permissions.index') }}">Permissions</x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('permissions.index') }}">{{ __('Permissions') }}</x-jet-responsive-nav-link>
                     @endcan
-                    
+
                 @endif
         </div>
 
