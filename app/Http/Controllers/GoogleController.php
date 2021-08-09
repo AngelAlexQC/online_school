@@ -31,12 +31,12 @@ class GoogleController extends Controller
         try {
 
             $user = Socialite::driver('google')->user();
-
             $user = User::firstOrCreate([
                 'email' => $user->email,
             ], [
                 'google_id' => $user->id,
-                'last_name' => $user->displayName,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
             ]);
 
             Auth::login($user);
