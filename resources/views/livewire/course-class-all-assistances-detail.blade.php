@@ -32,19 +32,6 @@
                             maxlength="255"
                         ></x-inputs.text>
                     </x-inputs.group>
-
-                    <x-inputs.group class="w-full">
-                        <x-inputs.select
-                            name="assistances.student_id"
-                            label="Student"
-                            wire:model="assistances.student_id"
-                        >
-                            <option value="null" disabled>Please select the User</option>
-                            @foreach($courseClassUsers as $value => $label)
-                            <option value="{{ $value }}"  >{{ $label }}</option>
-                            @endforeach
-                        </x-inputs.select>
-                    </x-inputs.group>
                 </div>
             </div>
 
@@ -87,9 +74,6 @@
                     <th class="px-4 py-3 text-left">
                         @lang('crud.course_class_all_assistances.inputs.name')
                     </th>
-                    <th class="px-4 py-3 text-left">
-                        @lang('crud.course_class_all_assistances.inputs.student_id')
-                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -105,9 +89,6 @@
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $assistances->name ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        {{ optional($assistances->student)->first_name ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-right" style="width: 134px;">
                         <div
@@ -131,7 +112,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="2">
                         <div class="mt-10 px-4">
                             {{ $allAssistances->render() }}
                         </div>

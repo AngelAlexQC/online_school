@@ -55,6 +55,8 @@ class CourseTest extends TestCase
 
         $response = $this->postJson(route('api.courses.store'), $data);
 
+        unset($data['teacher_id']);
+
         $this->assertDatabaseHas('courses', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);
@@ -69,14 +71,18 @@ class CourseTest extends TestCase
 
         $matter = Matter::factory()->create();
         $period = Period::factory()->create();
+        $user = User::factory()->create();
 
         $data = [
             'name' => $this->faker->name,
             'matter_id' => $matter->id,
             'period_id' => $period->id,
+            'teacher_id' => $user->id,
         ];
 
         $response = $this->putJson(route('api.courses.update', $course), $data);
+
+        unset($data['teacher_id']);
 
         $data['id'] = $course->id;
 

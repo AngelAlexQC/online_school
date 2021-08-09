@@ -67,6 +67,8 @@ class CourseControllerTest extends TestCase
 
         $response = $this->post(route('courses.store'), $data);
 
+        unset($data['teacher_id']);
+
         $this->assertDatabaseHas('courses', $data);
 
         $course = Course::latest('id')->first();
@@ -113,14 +115,18 @@ class CourseControllerTest extends TestCase
 
         $matter = Matter::factory()->create();
         $period = Period::factory()->create();
+        $user = User::factory()->create();
 
         $data = [
             'name' => $this->faker->name,
             'matter_id' => $matter->id,
             'period_id' => $period->id,
+            'teacher_id' => $user->id,
         ];
 
         $response = $this->put(route('courses.update', $course), $data);
+
+        unset($data['teacher_id']);
 
         $data['id'] = $course->id;
 

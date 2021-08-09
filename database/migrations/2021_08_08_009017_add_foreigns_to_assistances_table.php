@@ -15,16 +15,16 @@ class AddForeignsToAssistancesTable extends Migration
     {
         Schema::table('assistances', function (Blueprint $table) {
             $table
-                ->foreign('student_id')
+                ->foreign('course_class_id')
                 ->references('id')
-                ->on('users')
+                ->on('course_classes')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
             $table
-                ->foreign('course_class_id')
+                ->foreign('student_id')
                 ->references('id')
-                ->on('course_classes')
+                ->on('enrollments')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
         });
@@ -38,8 +38,8 @@ class AddForeignsToAssistancesTable extends Migration
     public function down()
     {
         Schema::table('assistances', function (Blueprint $table) {
-            $table->dropForeign(['student_id']);
             $table->dropForeign(['course_class_id']);
+            $table->dropForeign(['student_id']);
         });
     }
 }

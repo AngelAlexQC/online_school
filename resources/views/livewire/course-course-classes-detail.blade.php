@@ -55,7 +55,9 @@
 
             @if($editing) @can('view-any', App\Models\CourseClassTask::class)
             <x-partials.card class="mt-5 shadow-none bg-gray-50">
-                <h4 class="text-sm text-gray-600 font-bold mb-3">Tasks</h4>
+                <h4 class="text-sm text-gray-600 font-bold mb-3">
+                    Course Class Tasks
+                </h4>
 
                 <livewire:course-class-course-class-tasks-detail
                     :courseClass="$courseClass"

@@ -26,6 +26,7 @@ class CourseFactory extends Factory
             'name' => $this->faker->name,
             'matter_id' => \App\Models\Matter::factory(),
             'period_id' => \App\Models\Period::factory(),
+            'teacher_id' => \App\Models\User::factory(),
         ];
     }
 }

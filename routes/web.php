@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\MallaController;
 use App\Http\Controllers\SchoolController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\MatterController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\CourseClassController;
 
@@ -48,4 +50,6 @@ Route::prefix('/')
         Route::resource('admissions', AdmissionController::class);
         Route::resource('course-classes', CourseClassController::class);
         Route::resource('comments', CommentController::class);
+        Route::resource('users', UserController::class);
+        Route::resource('enrollments', EnrollmentController::class);
     });

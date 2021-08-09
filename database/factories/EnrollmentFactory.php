@@ -25,6 +25,7 @@ class EnrollmentFactory extends Factory
         return [
             'name' => $this->faker->name,
             'student_id' => \App\Models\User::factory(),
+            'course_id' => \App\Models\Course::factory(),
         ];
     }
 }

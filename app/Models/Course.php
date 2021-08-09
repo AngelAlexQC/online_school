@@ -13,7 +13,7 @@ class Course extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'matter_id', 'period_id'];
+    protected $fillable = ['name', 'matter_id', 'period_id', 'teacher_id'];
 
     protected $searchableFields = ['*'];
 
@@ -30,5 +30,15 @@ class Course extends Model
     public function courseClasses()
     {
         return $this->hasMany(CourseClass::class);
+    }
+
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'teacher_id');
     }
 }

@@ -62,6 +62,8 @@ class MatterCoursesTest extends TestCase
             $data
         );
 
+        unset($data['teacher_id']);
+
         $this->assertDatabaseHas('courses', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);

@@ -265,7 +265,6 @@ return [
         'show_title' => 'Show Assistances',
         'inputs' => [
             'name' => 'Name',
-            'student_id' => 'Student',
         ],
     ],
 
@@ -346,6 +345,179 @@ return [
             'name' => 'Name',
             'content' => 'Content',
             'file' => 'File',
+        ],
+    ],
+
+    'users' => [
+        'name' => 'Users',
+        'index_title' => 'Users List',
+        'new_title' => 'New User',
+        'create_title' => 'Create User',
+        'edit_title' => 'Edit User',
+        'show_title' => 'Show User',
+        'inputs' => [
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
+            'email' => 'Email',
+            'password' => 'Password',
+        ],
+    ],
+
+    'user_admissions' => [
+        'name' => 'User Admissions',
+        'index_title' => 'Admissions List',
+        'new_title' => 'New Admission',
+        'create_title' => 'Create Admission',
+        'edit_title' => 'Edit Admission',
+        'show_title' => 'Show Admission',
+        'inputs' => [
+            'malla_id' => 'Malla',
+            'status' => 'Status',
+        ],
+    ],
+
+    'admission_admission_ataches' => [
+        'name' => 'Admission Admission Ataches',
+        'index_title' => 'AdmissionAtaches List',
+        'new_title' => 'New Admission atach',
+        'create_title' => 'Create AdmissionAtach',
+        'edit_title' => 'Edit AdmissionAtach',
+        'show_title' => 'Show AdmissionAtach',
+        'inputs' => [
+            'attach_id' => 'Attach',
+        ],
+    ],
+
+    'user_student_tasks' => [
+        'name' => 'User Student Tasks',
+        'index_title' => 'StudentTasks List',
+        'new_title' => 'New Student task',
+        'create_title' => 'Create StudentTask',
+        'edit_title' => 'Edit StudentTask',
+        'show_title' => 'Show StudentTask',
+        'inputs' => [
+            'task_id' => 'Task',
+            'name' => 'Name',
+        ],
+    ],
+
+    'student_task_student_task_attaches' => [
+        'name' => 'StudentTask Student Task Attaches',
+        'index_title' => 'StudentTaskAttaches List',
+        'new_title' => 'New Student task attach',
+        'create_title' => 'Create StudentTaskAttach',
+        'edit_title' => 'Edit StudentTaskAttach',
+        'show_title' => 'Show StudentTaskAttach',
+        'inputs' => [
+            'attach_id' => 'Attach',
+        ],
+    ],
+
+    'user_enrollments' => [
+        'name' => 'User Enrollments',
+        'index_title' => 'Enrollments List',
+        'new_title' => 'New Enrollment',
+        'create_title' => 'Create Enrollment',
+        'edit_title' => 'Edit Enrollment',
+        'show_title' => 'Show Enrollment',
+        'inputs' => [
+            'course_id' => 'Course',
+            'name' => 'Name',
+        ],
+    ],
+
+    'user_courses' => [
+        'name' => 'User Courses',
+        'index_title' => 'Courses List',
+        'new_title' => 'New Course',
+        'create_title' => 'Create Course',
+        'edit_title' => 'Edit Course',
+        'show_title' => 'Show Course',
+        'inputs' => [
+            'period_id' => 'Period',
+            'matter_id' => 'Matter',
+            'name' => 'Name',
+        ],
+    ],
+
+    'course_course_classes' => [
+        'name' => 'Course Course Classes',
+        'index_title' => 'CourseClasses List',
+        'new_title' => 'New Course class',
+        'create_title' => 'Create CourseClass',
+        'edit_title' => 'Edit CourseClass',
+        'show_title' => 'Show CourseClass',
+        'inputs' => [
+            'name' => 'Name',
+            'description' => 'Description',
+            'content' => 'Content',
+        ],
+    ],
+
+    'course_class_course_class_tasks' => [
+        'name' => 'CourseClass Course Class Tasks',
+        'index_title' => 'CourseClassTasks List',
+        'new_title' => 'New Course class task',
+        'create_title' => 'Create CourseClassTask',
+        'edit_title' => 'Edit CourseClassTask',
+        'show_title' => 'Show CourseClassTask',
+        'inputs' => [
+            'name' => 'Name',
+            'content' => 'Content',
+            'file' => 'File',
+            'score' => 'Score',
+        ],
+    ],
+
+    'course_class_task_student_tasks' => [
+        'name' => 'CourseClassTask Student Tasks',
+        'index_title' => 'StudentTasks List',
+        'new_title' => 'New Student task',
+        'create_title' => 'Create StudentTask',
+        'edit_title' => 'Edit StudentTask',
+        'show_title' => 'Show StudentTask',
+        'inputs' => [
+            'name' => 'Name',
+            'student_id' => 'Student',
+        ],
+    ],
+
+    'student_task_student_task_attaches' => [
+        'name' => 'StudentTask Student Task Attaches',
+        'index_title' => 'StudentTaskAttaches List',
+        'new_title' => 'New Student task attach',
+        'create_title' => 'Create StudentTaskAttach',
+        'edit_title' => 'Edit StudentTaskAttach',
+        'show_title' => 'Show StudentTaskAttach',
+        'inputs' => [
+            'attach_id' => 'Attach',
+        ],
+    ],
+
+    'course_enrollments' => [
+        'name' => 'Course Enrollments',
+        'index_title' => 'Enrollments List',
+        'new_title' => 'New Enrollment',
+        'create_title' => 'Create Enrollment',
+        'edit_title' => 'Edit Enrollment',
+        'show_title' => 'Show Enrollment',
+        'inputs' => [
+            'student_id' => 'Student',
+            'name' => 'Name',
+        ],
+    ],
+
+    'enrollments' => [
+        'name' => 'Enrollments',
+        'index_title' => 'Enrollments List',
+        'new_title' => 'New Enrollment',
+        'create_title' => 'Create Enrollment',
+        'edit_title' => 'Edit Enrollment',
+        'show_title' => 'Show Enrollment',
+        'inputs' => [
+            'name' => 'Name',
+            'student_id' => 'Student',
+            'course_id' => 'Course',
         ],
     ],
 

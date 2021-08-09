@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
 use Livewire\Component;
 use App\Models\CourseClass;
 use App\Models\Assistances;
@@ -14,7 +13,6 @@ class CourseClassAllAssistancesDetail extends Component
 
     public CourseClass $courseClass;
     public Assistances $assistances;
-    public $courseClassUsers = [];
 
     public $selected = [];
     public $editing = false;
@@ -25,13 +23,11 @@ class CourseClassAllAssistancesDetail extends Component
 
     protected $rules = [
         'assistances.name' => ['required', 'max:255', 'string'],
-        'assistances.student_id' => ['required', 'exists:users,id'],
     ];
 
     public function mount(CourseClass $courseClass)
     {
         $this->courseClass = $courseClass;
-        $this->courseClassUsers = User::pluck('first_name', 'id');
         $this->resetAssistancesData();
     }
 

@@ -11,17 +11,17 @@ class Assistances extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'student_id', 'course_class_id'];
+    protected $fillable = ['name', 'course_class_id', 'student_id'];
 
     protected $searchableFields = ['*'];
-
-    public function student()
-    {
-        return $this->belongsTo(User::class, 'student_id');
-    }
 
     public function courseClass()
     {
         return $this->belongsTo(CourseClass::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Enrollment::class, 'student_id');
     }
 }

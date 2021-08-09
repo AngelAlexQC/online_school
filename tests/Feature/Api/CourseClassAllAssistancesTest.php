@@ -65,6 +65,7 @@ class CourseClassAllAssistancesTest extends TestCase
         );
 
         unset($data['course_class_id']);
+        unset($data['student_id']);
 
         $this->assertDatabaseHas('assistances', $data);
 

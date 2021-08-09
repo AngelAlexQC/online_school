@@ -16,8 +16,8 @@ class CreateAssistancesTable extends Migration
         Schema::create('assistances', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('course_class_id');
+            $table->unsignedBigInteger('student_id');
 
             $table->timestamps();
         });

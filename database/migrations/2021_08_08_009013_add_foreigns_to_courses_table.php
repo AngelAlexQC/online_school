@@ -27,6 +27,13 @@ class AddForeignsToCoursesTable extends Migration
                 ->on('periods')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table
+                ->foreign('teacher_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -40,6 +47,7 @@ class AddForeignsToCoursesTable extends Migration
         Schema::table('courses', function (Blueprint $table) {
             $table->dropForeign(['matter_id']);
             $table->dropForeign(['period_id']);
+            $table->dropForeign(['teacher_id']);
         });
     }
 }

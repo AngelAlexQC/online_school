@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\MallaController;
@@ -13,26 +14,34 @@ use App\Http\Controllers\Api\MatterController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\AdmissionController;
+use App\Http\Controllers\Api\EnrollmentController;
 use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\MallaLevelsController;
 use App\Http\Controllers\Api\CourseClassController;
 use App\Http\Controllers\Api\StudentTaskController;
 use App\Http\Controllers\Api\AssistancesController;
+use App\Http\Controllers\Api\UserCoursesController;
 use App\Http\Controllers\Api\CareerMallasController;
 use App\Http\Controllers\Api\LevelMattersController;
 use App\Http\Controllers\Api\ClassCommentController;
+use App\Http\Controllers\Api\UserCommentsController;
 use App\Http\Controllers\Api\SchoolCareersController;
 use App\Http\Controllers\Api\SchoolPeriodsController;
 use App\Http\Controllers\Api\PeriodCoursesController;
 use App\Http\Controllers\Api\MatterCoursesController;
 use App\Http\Controllers\Api\AdmissionAtachController;
+use App\Http\Controllers\Api\UserAdmissionsController;
 use App\Http\Controllers\Api\MallaAdmissionsController;
 use App\Http\Controllers\Api\CourseClassTaskController;
+use App\Http\Controllers\Api\UserEnrollmentsController;
+use App\Http\Controllers\Api\UserStudentTasksController;
+use App\Http\Controllers\Api\CourseEnrollmentsController;
 use App\Http\Controllers\Api\StudentTaskAttachController;
 use App\Http\Controllers\Api\CourseCourseClassesController;
 use App\Http\Controllers\Api\CommentClassCommentsController;
 use App\Http\Controllers\Api\CommentAdmissionAtachesController;
 use App\Http\Controllers\Api\CourseClassClassCommentsController;
+use App\Http\Controllers\Api\EnrollmentAllAssistancesController;
 use App\Http\Controllers\Api\CourseClassAllAssistancesController;
 use App\Http\Controllers\Api\AdmissionAdmissionAtachesController;
 use App\Http\Controllers\Api\CommentStudentTaskAttachesController;
@@ -145,6 +154,16 @@ Route::name('api.')
             'store',
         ])->name('courses.course-classes.store');
 
+        // Course Enrollments
+        Route::get('/courses/{course}/enrollments', [
+            CourseEnrollmentsController::class,
+            'index',
+        ])->name('courses.enrollments.index');
+        Route::post('/courses/{course}/enrollments', [
+            CourseEnrollmentsController::class,
+            'store',
+        ])->name('courses.enrollments.store');
+
         Route::apiResource('admissions', AdmissionController::class);
 
         // Admission Admission Ataches
@@ -220,4 +239,68 @@ Route::name('api.')
             CommentStudentTaskAttachesController::class,
             'store',
         ])->name('comments.student-task-attaches.store');
+
+        Route::apiResource('users', UserController::class);
+
+        // User Comments
+        Route::get('/users/{user}/comments', [
+            UserCommentsController::class,
+            'index',
+        ])->name('users.comments.index');
+        Route::post('/users/{user}/comments', [
+            UserCommentsController::class,
+            'store',
+        ])->name('users.comments.store');
+
+        // User Admissions
+        Route::get('/users/{user}/admissions', [
+            UserAdmissionsController::class,
+            'index',
+        ])->name('users.admissions.index');
+        Route::post('/users/{user}/admissions', [
+            UserAdmissionsController::class,
+            'store',
+        ])->name('users.admissions.store');
+
+        // User Student Tasks
+        Route::get('/users/{user}/student-tasks', [
+            UserStudentTasksController::class,
+            'index',
+        ])->name('users.student-tasks.index');
+        Route::post('/users/{user}/student-tasks', [
+            UserStudentTasksController::class,
+            'store',
+        ])->name('users.student-tasks.store');
+
+        // User Enrollments
+        Route::get('/users/{user}/enrollments', [
+            UserEnrollmentsController::class,
+            'index',
+        ])->name('users.enrollments.index');
+        Route::post('/users/{user}/enrollments', [
+            UserEnrollmentsController::class,
+            'store',
+        ])->name('users.enrollments.store');
+
+        // User Courses
+        Route::get('/users/{user}/courses', [
+            UserCoursesController::class,
+            'index',
+        ])->name('users.courses.index');
+        Route::post('/users/{user}/courses', [
+            UserCoursesController::class,
+            'store',
+        ])->name('users.courses.store');
+
+        Route::apiResource('enrollments', EnrollmentController::class);
+
+        // Enrollment All Assistances
+        Route::get('/enrollments/{enrollment}/all-assistances', [
+            EnrollmentAllAssistancesController::class,
+            'index',
+        ])->name('enrollments.all-assistances.index');
+        Route::post('/enrollments/{enrollment}/all-assistances', [
+            EnrollmentAllAssistancesController::class,
+            'store',
+        ])->name('enrollments.all-assistances.store');
     });

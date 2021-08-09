@@ -58,6 +58,16 @@
                         Comments
                         </x-dropdown-link>
                         @endcan
+                        @can('view-any', App\Models\User::class)
+                        <x-dropdown-link href="{{ route('users.index') }}">
+                        Users
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\Enrollment::class)
+                        <x-dropdown-link href="{{ route('enrollments.index') }}">
+                        Enrollments
+                        </x-dropdown-link>
+                        @endcan
                 </x-nav-dropdown>
 
                     @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) || 
@@ -238,6 +248,16 @@
                 @can('view-any', App\Models\Comment::class)
                 <x-jet-responsive-nav-link href="{{ route('comments.index') }}">
                 Comments
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\User::class)
+                <x-jet-responsive-nav-link href="{{ route('users.index') }}">
+                Users
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\Enrollment::class)
+                <x-jet-responsive-nav-link href="{{ route('enrollments.index') }}">
+                Enrollments
                 </x-jet-responsive-nav-link>
                 @endcan
 

@@ -24,14 +24,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use TwoFactorAuthenticatable;
 
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
-        'password',
-        'userable_id',
-        'userable_type',
-    ];
+    protected $fillable = ['first_name', 'last_name', 'email', 'password'];
 
     protected $searchableFields = ['*'];
 
@@ -56,11 +49,6 @@ class User extends Authenticatable
         return $this->hasMany(Admission::class, 'requester_id');
     }
 
-    public function allAssistances()
-    {
-        return $this->hasMany(Assistances::class, 'student_id');
-    }
-
     public function studentTasks()
     {
         return $this->hasMany(StudentTask::class, 'student_id');
@@ -69,6 +57,11 @@ class User extends Authenticatable
     public function enrollments()
     {
         return $this->hasMany(Enrollment::class, 'student_id');
+    }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'teacher_id');
     }
 
     public function isSuperAdmin()

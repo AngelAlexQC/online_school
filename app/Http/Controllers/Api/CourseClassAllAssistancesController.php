@@ -41,7 +41,6 @@ class CourseClassAllAssistancesController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],
-            'student_id' => ['required', 'exists:users,id'],
         ]);
 
         $assistances = $courseClass->allAssistances()->create($validated);

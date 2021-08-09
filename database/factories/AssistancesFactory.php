@@ -24,8 +24,8 @@ class AssistancesFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'student_id' => \App\Models\User::factory(),
             'course_class_id' => \App\Models\CourseClass::factory(),
+            'student_id' => \App\Models\Enrollment::factory(),
         ];
     }
 }

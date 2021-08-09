@@ -20,6 +20,13 @@ class AddForeignsToEnrollmentsTable extends Migration
                 ->on('users')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table
+                ->foreign('course_id')
+                ->references('id')
+                ->on('courses')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -32,6 +39,7 @@ class AddForeignsToEnrollmentsTable extends Migration
     {
         Schema::table('enrollments', function (Blueprint $table) {
             $table->dropForeign(['student_id']);
+            $table->dropForeign(['course_id']);
         });
     }
 }
