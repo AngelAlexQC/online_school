@@ -18,7 +18,7 @@ class RoleControllerTest extends TestCase
     {
         parent::setUp();
 
-        $this->actingAs(User::factory()->create(['email' => 'guirudj007@gmail.com']));
+        $this->actingAs(User::factory()->create(['email' => 'admin@admin.com']));
 
         $this->seed(\Database\Seeders\PermissionsSeeder::class);
 

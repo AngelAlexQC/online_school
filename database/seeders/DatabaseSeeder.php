@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             ->create([
                 'first_name' => 'Administrador',
                 'last_name' => 'Del Sistema',
-                'email' => 'guirudj007@gmail.com',
+                'email' => 'admin@admin.com',
                 'password' => Hash::make('admin'),
             ]);
         $this->call(PermissionsSeeder::class);

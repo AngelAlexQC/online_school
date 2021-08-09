@@ -20,7 +20,7 @@ class CourseClassCourseClassTasksTest extends TestCase
     {
         parent::setUp();
 
-        $user = User::factory()->create(['email' => 'guirudj007@gmail.com']);
+        $user = User::factory()->create(['email' => 'admin@admin.com']);
 
         Sanctum::actingAs($user, [], 'web');
 
