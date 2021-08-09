@@ -14,6 +14,7 @@ use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\CourseClassController;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ use App\Http\Controllers\CourseClassController;
 Route::get('/', function () {
     return redirect('dashboard');
 });
-
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::middleware(['auth:sanctum', 'verified'])
     ->get('/dashboard', function () {
         return view('dashboard');

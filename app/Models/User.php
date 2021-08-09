@@ -24,7 +24,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use TwoFactorAuthenticatable;
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'password'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'password', 'google_id'];
 
     protected $searchableFields = ['*'];
 
@@ -39,7 +39,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['name'];
+    protected $appends = ['name', 'profile_photo_url',];
 
     public function comments()
     {

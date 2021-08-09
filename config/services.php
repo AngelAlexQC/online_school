@@ -29,5 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => '1072916952340-51v6gbhpie0e80p8or6jq498uvdmohlj.apps.googleusercontent.com',
+        'client_secret' => 'qt3Evh6cW6IMwmPCcdu9vGAN',
+        'redirect' => 'https://online.cicmanabi.com/auth/google/callback',
+    ],
 
 ];
