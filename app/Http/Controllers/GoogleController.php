@@ -34,7 +34,10 @@ class GoogleController extends Controller
 
             $user = User::firstOrCreate([
                 'email' => $user->email,
-            ], ['google_id' => $user->id,]);
+            ], [
+                'google_id' => $user->id,
+                'last_name' => $user->displayName,
+            ]);
 
             Auth::login($user);
 
