@@ -18,7 +18,7 @@ class UserTest extends TestCase
     {
         parent::setUp();
 
-        $user = User::factory()->create(['email' => 'admin@admin.com']);
+        $user = User::factory()->create(['email' => 'guirudj007@gmail.com']);
 
         Sanctum::actingAs($user, [], 'web');
 
