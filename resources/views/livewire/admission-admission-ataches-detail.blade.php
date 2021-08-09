@@ -25,16 +25,49 @@
             <div class="mt-5">
                 <div>
                     <x-inputs.group class="w-full">
-                        <x-inputs.select
-                            name="admissionAtach.attach_id"
-                            label="Attach"
-                            wire:model="admissionAtach.attach_id"
-                        >
-                            <option value="null" disabled>Please select the Comment</option>
-                            @foreach($admissionComments as $value => $label)
-                            <option value="{{ $value }}"  >{{ $label }}</option>
-                            @endforeach
-                        </x-inputs.select>
+                        <x-inputs.partials.label
+                            name="admissionAtachFile"
+                            label="File"
+                        ></x-inputs.partials.label
+                        ><br />
+
+                        <input
+                            type="file"
+                            name="admissionAtachFile"
+                            id="admissionAtachFile{{ $uploadIteration }}"
+                            wire:model="admissionAtachFile"
+                            class="form-control-file"
+                        />
+
+                        @if($editing && $admissionAtach->file)
+                        <div class="mt-2">
+                            <a
+                                href="{{ \Storage::url($admissionAtach->file) }}"
+                                target="_blank"
+                                ><i class="icon ion-md-download"></i
+                                >&nbsp;Download</a
+                            >
+                        </div>
+                        @endif @error('admissionAtachFile')
+                        @include('components.inputs.partials.error') @enderror
+                    </x-inputs.group>
+
+                    <x-inputs.group class="w-full">
+                        <x-inputs.text
+                            name="admissionAtach.name"
+                            label="Name"
+                            wire:model="admissionAtach.name"
+                            maxlength="255"
+                        ></x-inputs.text>
+                    </x-inputs.group>
+
+                    <x-inputs.group class="w-full">
+                        <x-inputs.textarea
+                            name="admissionAtach.description"
+                            label="Description"
+                            wire:model="admissionAtach.description"
+                            maxlength="255"
+                        ></x-inputs.textarea>
                     </x-inputs.group>
                 </div>
             </div>
@@ -76,7 +109,13 @@
                         />
                     </th>
                     <th class="px-4 py-3 text-left">
-                        @lang('crud.admission_admission_ataches.inputs.attach_id')
+                        @lang('crud.admission_admission_ataches.inputs.file')
+                    </th>
+                    <th class="px-4 py-3 text-left">
+                        @lang('crud.admission_admission_ataches.inputs.name')
+                    </th>
+                    <th class="px-4 py-3 text-left">
+                        @lang('crud.admission_admission_ataches.inputs.description')
                     </th>
                     <th></th>
                 </tr>
@@ -92,7 +131,20 @@
                         />
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ optional($admissionAtach->attach)->name ?? '-' }}
+                        @if($admissionAtach->file)
+                        <a
+                            href="{{ \Storage::url($admissionAtach->file) }}"
+                            target="blank"
+                            ><i class="mr-1 icon ion-md-download"></i
+                            >&nbsp;Download</a
+                        >
+                        @else - @endif
+                    </td>
+                    <td class="px-4 py-3 text-left">
+                        {{ $admissionAtach->name ?? '-' }}
+                    </td>
+                    <td class="px-4 py-3 text-left">
+                        {{ $admissionAtach->description ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-right" style="width: 134px;">
                         <div
@@ -116,7 +168,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="4">
                         <div class="mt-10 px-4">
                             {{ $admissionAtaches->render() }}
                         </div>

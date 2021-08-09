@@ -23,8 +23,9 @@ class AdmissionAtachFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->name,
+            'description' => $this->faker->sentence(15),
             'admission_id' => \App\Models\Admission::factory(),
-            'attach_id' => \App\Models\Comment::factory(),
         ];
     }
 }

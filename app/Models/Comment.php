@@ -25,11 +25,6 @@ class Comment extends Model
         return $this->hasMany(ClassComment::class);
     }
 
-    public function admissionAtaches()
-    {
-        return $this->hasMany(AdmissionAtach::class, 'attach_id');
-    }
-
     public function studentTaskAttaches()
     {
         return $this->hasMany(StudentTaskAttach::class, 'attach_id');

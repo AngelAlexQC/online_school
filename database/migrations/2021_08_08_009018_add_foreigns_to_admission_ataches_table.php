@@ -20,13 +20,6 @@ class AddForeignsToAdmissionAtachesTable extends Migration
                 ->on('admissions')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-
-            $table
-                ->foreign('attach_id')
-                ->references('id')
-                ->on('comments')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
         });
     }
 
@@ -39,7 +32,6 @@ class AddForeignsToAdmissionAtachesTable extends Migration
     {
         Schema::table('admission_ataches', function (Blueprint $table) {
             $table->dropForeign(['admission_id']);
-            $table->dropForeign(['attach_id']);
         });
     }
 }

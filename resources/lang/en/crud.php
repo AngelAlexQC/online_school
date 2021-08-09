@@ -321,18 +321,6 @@ return [
         ],
     ],
 
-    'admission_admission_ataches' => [
-        'name' => 'Admission Admission Ataches',
-        'index_title' => 'AdmissionAtaches List',
-        'new_title' => 'New Admission atach',
-        'create_title' => 'Create AdmissionAtach',
-        'edit_title' => 'Edit AdmissionAtach',
-        'show_title' => 'Show AdmissionAtach',
-        'inputs' => [
-            'attach_id' => 'Attach',
-        ],
-    ],
-
     'comments' => [
         'name' => 'Comments',
         'index_title' => 'Comments List',
@@ -383,9 +371,7 @@ return [
         'create_title' => 'Create AdmissionAtach',
         'edit_title' => 'Edit AdmissionAtach',
         'show_title' => 'Show AdmissionAtach',
-        'inputs' => [
-            'attach_id' => 'Attach',
-        ],
+        'inputs' => [],
     ],
 
     'user_student_tasks' => [
@@ -518,6 +504,20 @@ return [
             'name' => 'Name',
             'student_id' => 'Student',
             'course_id' => 'Course',
+        ],
+    ],
+
+    'admission_admission_ataches' => [
+        'name' => 'Admission Admission Ataches',
+        'index_title' => 'AdmissionAtaches List',
+        'new_title' => 'New Admission atach',
+        'create_title' => 'Create AdmissionAtach',
+        'edit_title' => 'Edit AdmissionAtach',
+        'show_title' => 'Show AdmissionAtach',
+        'inputs' => [
+            'file' => 'File',
+            'name' => 'Name',
+            'description' => 'Description',
         ],
     ],
 

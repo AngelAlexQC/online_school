@@ -39,9 +39,7 @@ class AdmissionAdmissionAtachesController extends Controller
     {
         $this->authorize('create', AdmissionAtach::class);
 
-        $validated = $request->validate([
-            'attach_id' => ['required', 'exists:comments,id'],
-        ]);
+        $validated = $request->validate([]);
 
         $admissionAtach = $admission->admissionAtaches()->create($validated);
 

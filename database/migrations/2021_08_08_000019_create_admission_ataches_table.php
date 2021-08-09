@@ -16,7 +16,9 @@ class CreateAdmissionAtachesTable extends Migration
         Schema::create('admission_ataches', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('admission_id');
-            $table->unsignedBigInteger('attach_id');
+            $table->string('file')->nullable();
+            $table->string('name');
+            $table->text('description')->nullable();
 
             $table->timestamps();
         });

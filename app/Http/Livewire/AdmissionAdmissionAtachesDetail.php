@@ -3,18 +3,21 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Comment;
 use App\Models\Admission;
+use Livewire\WithFileUploads;
 use App\Models\AdmissionAtach;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class AdmissionAdmissionAtachesDetail extends Component
 {
+    use WithFileUploads;
     use AuthorizesRequests;
 
     public Admission $admission;
     public AdmissionAtach $admissionAtach;
-    public $admissionComments = [];
+    public $admissionAtachFile;
+    public $uploadIteration = 0;
 
     public $selected = [];
     public $editing = false;
@@ -24,19 +27,22 @@ class AdmissionAdmissionAtachesDetail extends Component
     public $modalTitle = 'New AdmissionAtach';
 
     protected $rules = [
-        'admissionAtach.attach_id' => ['required', 'exists:comments,id'],
+        'admissionAtachFile' => ['nullable', 'file'],
+        'admissionAtach.name' => ['required', 'max:255', 'string'],
+        'admissionAtach.description' => ['nullable', 'max:255', 'string'],
     ];
 
     public function mount(Admission $admission)
     {
         $this->admission = $admission;
-        $this->admissionComments = Comment::pluck('name', 'id');
         $this->resetAdmissionAtachData();
     }
 
     public function resetAdmissionAtachData()
     {
         $this->admissionAtach = new AdmissionAtach();
+
+        $this->admissionAtachFile = null;
 
         $this->dispatchBrowserEvent('refresh');
     }
@@ -86,7 +92,15 @@ class AdmissionAdmissionAtachesDetail extends Component
             $this->authorize('update', $this->admissionAtach);
         }
 
+        if ($this->admissionAtachFile) {
+            $this->admissionAtach->file = $this->admissionAtachFile->store(
+                'public'
+            );
+        }
+
         $this->admissionAtach->save();
+
+        $this->uploadIteration++;
 
         $this->hideModal();
     }
@@ -95,7 +109,15 @@ class AdmissionAdmissionAtachesDetail extends Component
     {
         $this->authorize('delete-any', AdmissionAtach::class);
 
-        AdmissionAtach::whereIn('id', $this->selected)->delete();
+        collect($this->selected)->each(function (string $id) {
+            $admissionAtach = AdmissionAtach::findOrFail($id);
+
+            if ($admissionAtach->file) {
+                Storage::delete($admissionAtach->file);
+            }
+
+            $admissionAtach->delete();
+        });
 
         $this->selected = [];
         $this->allSelected = false;

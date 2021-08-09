@@ -11,7 +11,7 @@ class AdmissionAtach extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['admission_id', 'attach_id'];
+    protected $fillable = ['admission_id', 'file', 'name', 'description'];
 
     protected $searchableFields = ['*'];
 
@@ -20,10 +20,5 @@ class AdmissionAtach extends Model
     public function admission()
     {
         return $this->belongsTo(Admission::class);
-    }
-
-    public function attach()
-    {
-        return $this->belongsTo(Comment::class, 'attach_id');
     }
 }

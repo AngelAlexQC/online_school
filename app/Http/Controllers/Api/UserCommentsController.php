@@ -42,7 +42,7 @@ class UserCommentsController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],
             'content' => ['required', 'max:255', 'string'],
-            'file' => ['nullable', 'file'],
+            'file' => ['file', 'required'],
         ]);
 
         if ($request->hasFile('file')) {

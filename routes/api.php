@@ -29,8 +29,8 @@ use App\Http\Controllers\Api\SchoolCareersController;
 use App\Http\Controllers\Api\SchoolPeriodsController;
 use App\Http\Controllers\Api\PeriodCoursesController;
 use App\Http\Controllers\Api\MatterCoursesController;
-use App\Http\Controllers\Api\AdmissionAtachController;
 use App\Http\Controllers\Api\UserAdmissionsController;
+use App\Http\Controllers\Api\AdmissionAtachController;
 use App\Http\Controllers\Api\MallaAdmissionsController;
 use App\Http\Controllers\Api\CourseClassTaskController;
 use App\Http\Controllers\Api\UserEnrollmentsController;
@@ -39,7 +39,6 @@ use App\Http\Controllers\Api\CourseEnrollmentsController;
 use App\Http\Controllers\Api\StudentTaskAttachController;
 use App\Http\Controllers\Api\CourseCourseClassesController;
 use App\Http\Controllers\Api\CommentClassCommentsController;
-use App\Http\Controllers\Api\CommentAdmissionAtachesController;
 use App\Http\Controllers\Api\CourseClassClassCommentsController;
 use App\Http\Controllers\Api\EnrollmentAllAssistancesController;
 use App\Http\Controllers\Api\CourseClassAllAssistancesController;
@@ -219,16 +218,6 @@ Route::name('api.')
             CommentClassCommentsController::class,
             'store',
         ])->name('comments.class-comments.store');
-
-        // Comment Admission Ataches
-        Route::get('/comments/{comment}/admission-ataches', [
-            CommentAdmissionAtachesController::class,
-            'index',
-        ])->name('comments.admission-ataches.index');
-        Route::post('/comments/{comment}/admission-ataches', [
-            CommentAdmissionAtachesController::class,
-            'store',
-        ])->name('comments.admission-ataches.store');
 
         // Comment Student Task Attaches
         Route::get('/comments/{comment}/student-task-attaches', [

@@ -44,7 +44,7 @@ class AdmissionAdmissionAtachesTest extends TestCase
             route('api.admissions.admission-ataches.index', $admission)
         );
 
-        $response->assertOk()->assertSee($admissionAtaches[0]->id);
+        $response->assertOk()->assertSee($admissionAtaches[0]->name);
     }
 
     /**

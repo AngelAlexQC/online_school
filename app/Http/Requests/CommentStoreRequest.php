@@ -27,7 +27,7 @@ class CommentStoreRequest extends FormRequest
             'author_id' => ['required', 'exists:users,id'],
             'name' => ['required', 'max:255', 'string'],
             'content' => ['required', 'max:255', 'string'],
-            'file' => ['nullable', 'file'],
+            'file' => ['file', 'required'],
         ];
     }
 }
