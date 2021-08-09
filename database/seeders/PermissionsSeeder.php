@@ -14,136 +14,148 @@ class PermissionsSeeder extends Seeder
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
+        // Create user role and assign existing permissions
+        $currentPermissions = [
+            Permission::firstOrCreate(['name' => 'list periods']),
+            Permission::firstOrCreate(['name' => 'view periods']),
+            Permission::firstOrCreate(['name' => 'list matters']),
+            Permission::firstOrCreate(['name' => 'view matters']),
+            Permission::firstOrCreate(['name' => 'create admissions']),
+            Permission::firstOrCreate(['name' => 'list schools']),
+            Permission::firstOrCreate(['name' => 'view schools']),
+            Permission::firstOrCreate(['name' => 'list mallas']),
+            Permission::firstOrCreate(['name' => 'view mallas']),
+            Permission::firstOrCreate(['name' => 'list careers']),
+            Permission::firstOrCreate(['name' => 'view careers']),
+            Permission::firstOrCreate(['name' => 'list levels']),
+            Permission::firstOrCreate(['name' => 'view levels']),
+            Permission::firstOrCreate(['name' => 'list admissionataches']),
+            Permission::firstOrCreate(['name' => 'view admissionataches']),
+            Permission::firstOrCreate(['name' => 'create admissionataches']),
+            Permission::firstOrCreate(['name' => 'update admissionataches']),
+            Permission::firstOrCreate(['name' => 'delete admissionataches']),
+            Permission::firstOrCreate(['name' => 'list comments']),
+            Permission::firstOrCreate(['name' => 'view comments']),
+            Permission::firstOrCreate(['name' => 'create comments']),
+        ];
+        $userRole = Role::firstOrCreate(['name' => 'Requester']);
+        $userRole->givePermissionTo($currentPermissions);
+
         // Create default permissions
-        Permission::create(['name' => 'list periods']);
-        Permission::create(['name' => 'view periods']);
-        Permission::create(['name' => 'create periods']);
-        Permission::create(['name' => 'update periods']);
-        Permission::create(['name' => 'delete periods']);
 
-        Permission::create(['name' => 'list courses']);
-        Permission::create(['name' => 'view courses']);
-        Permission::create(['name' => 'create courses']);
-        Permission::create(['name' => 'update courses']);
-        Permission::create(['name' => 'delete courses']);
+        Permission::firstOrCreate(['name' => 'create periods']);
+        Permission::firstOrCreate(['name' => 'update periods']);
+        Permission::firstOrCreate(['name' => 'delete periods']);
 
-        Permission::create(['name' => 'list matters']);
-        Permission::create(['name' => 'view matters']);
-        Permission::create(['name' => 'create matters']);
-        Permission::create(['name' => 'update matters']);
-        Permission::create(['name' => 'delete matters']);
+        Permission::firstOrCreate(['name' => 'list courses']);
+        Permission::firstOrCreate(['name' => 'view courses']);
+        Permission::firstOrCreate(['name' => 'create courses']);
+        Permission::firstOrCreate(['name' => 'update courses']);
+        Permission::firstOrCreate(['name' => 'delete courses']);
 
-        Permission::create(['name' => 'list admissions']);
-        Permission::create(['name' => 'view admissions']);
-        Permission::create(['name' => 'create admissions']);
-        Permission::create(['name' => 'update admissions']);
-        Permission::create(['name' => 'delete admissions']);
 
-        Permission::create(['name' => 'list schools']);
-        Permission::create(['name' => 'view schools']);
-        Permission::create(['name' => 'create schools']);
-        Permission::create(['name' => 'update schools']);
-        Permission::create(['name' => 'delete schools']);
+        Permission::firstOrCreate(['name' => 'create matters']);
+        Permission::firstOrCreate(['name' => 'update matters']);
+        Permission::firstOrCreate(['name' => 'delete matters']);
 
-        Permission::create(['name' => 'list mallas']);
-        Permission::create(['name' => 'view mallas']);
-        Permission::create(['name' => 'create mallas']);
-        Permission::create(['name' => 'update mallas']);
-        Permission::create(['name' => 'delete mallas']);
+        Permission::firstOrCreate(['name' => 'list admissions']);
+        Permission::firstOrCreate(['name' => 'view admissions']);
+        Permission::firstOrCreate(['name' => 'update admissions']);
+        Permission::firstOrCreate(['name' => 'delete admissions']);
 
-        Permission::create(['name' => 'list careers']);
-        Permission::create(['name' => 'view careers']);
-        Permission::create(['name' => 'create careers']);
-        Permission::create(['name' => 'update careers']);
-        Permission::create(['name' => 'delete careers']);
 
-        Permission::create(['name' => 'list courseclasstasks']);
-        Permission::create(['name' => 'view courseclasstasks']);
-        Permission::create(['name' => 'create courseclasstasks']);
-        Permission::create(['name' => 'update courseclasstasks']);
-        Permission::create(['name' => 'delete courseclasstasks']);
+        Permission::firstOrCreate(['name' => 'create schools']);
+        Permission::firstOrCreate(['name' => 'update schools']);
+        Permission::firstOrCreate(['name' => 'delete schools']);
 
-        Permission::create(['name' => 'list courseclasses']);
-        Permission::create(['name' => 'view courseclasses']);
-        Permission::create(['name' => 'create courseclasses']);
-        Permission::create(['name' => 'update courseclasses']);
-        Permission::create(['name' => 'delete courseclasses']);
 
-        Permission::create(['name' => 'list levels']);
-        Permission::create(['name' => 'view levels']);
-        Permission::create(['name' => 'create levels']);
-        Permission::create(['name' => 'update levels']);
-        Permission::create(['name' => 'delete levels']);
+        Permission::firstOrCreate(['name' => 'create mallas']);
+        Permission::firstOrCreate(['name' => 'update mallas']);
+        Permission::firstOrCreate(['name' => 'delete mallas']);
 
-        Permission::create(['name' => 'list classcomments']);
-        Permission::create(['name' => 'view classcomments']);
-        Permission::create(['name' => 'create classcomments']);
-        Permission::create(['name' => 'update classcomments']);
-        Permission::create(['name' => 'delete classcomments']);
 
-        Permission::create(['name' => 'list allassistances']);
-        Permission::create(['name' => 'view allassistances']);
-        Permission::create(['name' => 'create allassistances']);
-        Permission::create(['name' => 'update allassistances']);
-        Permission::create(['name' => 'delete allassistances']);
+        Permission::firstOrCreate(['name' => 'create careers']);
+        Permission::firstOrCreate(['name' => 'update careers']);
+        Permission::firstOrCreate(['name' => 'delete careers']);
 
-        Permission::create(['name' => 'list admissionataches']);
-        Permission::create(['name' => 'view admissionataches']);
-        Permission::create(['name' => 'create admissionataches']);
-        Permission::create(['name' => 'update admissionataches']);
-        Permission::create(['name' => 'delete admissionataches']);
+        Permission::firstOrCreate(['name' => 'list courseclasstasks']);
+        Permission::firstOrCreate(['name' => 'view courseclasstasks']);
+        Permission::firstOrCreate(['name' => 'create courseclasstasks']);
+        Permission::firstOrCreate(['name' => 'update courseclasstasks']);
+        Permission::firstOrCreate(['name' => 'delete courseclasstasks']);
 
-        Permission::create(['name' => 'list studenttasks']);
-        Permission::create(['name' => 'view studenttasks']);
-        Permission::create(['name' => 'create studenttasks']);
-        Permission::create(['name' => 'update studenttasks']);
-        Permission::create(['name' => 'delete studenttasks']);
+        Permission::firstOrCreate(['name' => 'list courseclasses']);
+        Permission::firstOrCreate(['name' => 'view courseclasses']);
+        Permission::firstOrCreate(['name' => 'create courseclasses']);
+        Permission::firstOrCreate(['name' => 'update courseclasses']);
+        Permission::firstOrCreate(['name' => 'delete courseclasses']);
 
-        Permission::create(['name' => 'list studenttaskattaches']);
-        Permission::create(['name' => 'view studenttaskattaches']);
-        Permission::create(['name' => 'create studenttaskattaches']);
-        Permission::create(['name' => 'update studenttaskattaches']);
-        Permission::create(['name' => 'delete studenttaskattaches']);
 
-        Permission::create(['name' => 'list comments']);
-        Permission::create(['name' => 'view comments']);
-        Permission::create(['name' => 'create comments']);
-        Permission::create(['name' => 'update comments']);
-        Permission::create(['name' => 'delete comments']);
+        Permission::firstOrCreate(['name' => 'create levels']);
+        Permission::firstOrCreate(['name' => 'update levels']);
+        Permission::firstOrCreate(['name' => 'delete levels']);
 
-        Permission::create(['name' => 'list enrollments']);
-        Permission::create(['name' => 'view enrollments']);
-        Permission::create(['name' => 'create enrollments']);
-        Permission::create(['name' => 'update enrollments']);
-        Permission::create(['name' => 'delete enrollments']);
+        Permission::firstOrCreate(['name' => 'list classcomments']);
+        Permission::firstOrCreate(['name' => 'view classcomments']);
+        Permission::firstOrCreate(['name' => 'create classcomments']);
+        Permission::firstOrCreate(['name' => 'update classcomments']);
+        Permission::firstOrCreate(['name' => 'delete classcomments']);
+
+        Permission::firstOrCreate(['name' => 'list allassistances']);
+        Permission::firstOrCreate(['name' => 'view allassistances']);
+        Permission::firstOrCreate(['name' => 'create allassistances']);
+        Permission::firstOrCreate(['name' => 'update allassistances']);
+        Permission::firstOrCreate(['name' => 'delete allassistances']);
+
+        Permission::firstOrCreate(['name' => 'list studenttasks']);
+        Permission::firstOrCreate(['name' => 'view studenttasks']);
+        Permission::firstOrCreate(['name' => 'create studenttasks']);
+        Permission::firstOrCreate(['name' => 'update studenttasks']);
+        Permission::firstOrCreate(['name' => 'delete studenttasks']);
+
+        Permission::firstOrCreate(['name' => 'list studenttaskattaches']);
+        Permission::firstOrCreate(['name' => 'view studenttaskattaches']);
+        Permission::firstOrCreate(['name' => 'create studenttaskattaches']);
+        Permission::firstOrCreate(['name' => 'update studenttaskattaches']);
+        Permission::firstOrCreate(['name' => 'delete studenttaskattaches']);
+
+
+        Permission::firstOrCreate(['name' => 'update comments']);
+        Permission::firstOrCreate(['name' => 'delete comments']);
+
+        Permission::firstOrCreate(['name' => 'list enrollments']);
+        Permission::firstOrCreate(['name' => 'view enrollments']);
+        Permission::firstOrCreate(['name' => 'create enrollments']);
+        Permission::firstOrCreate(['name' => 'update enrollments']);
+        Permission::firstOrCreate(['name' => 'delete enrollments']);
 
         // Create user role and assign existing permissions
         $currentPermissions = Permission::all();
-        $userRole = Role::create(['name' => 'user']);
+        $userRole = Role::firstOrCreate(['name' => 'Admin']);
         $userRole->givePermissionTo($currentPermissions);
 
         // Create admin exclusive permissions
-        Permission::create(['name' => 'list roles']);
-        Permission::create(['name' => 'view roles']);
-        Permission::create(['name' => 'create roles']);
-        Permission::create(['name' => 'update roles']);
-        Permission::create(['name' => 'delete roles']);
+        Permission::firstOrCreate(['name' => 'list roles']);
+        Permission::firstOrCreate(['name' => 'view roles']);
+        Permission::firstOrCreate(['name' => 'create roles']);
+        Permission::firstOrCreate(['name' => 'update roles']);
+        Permission::firstOrCreate(['name' => 'delete roles']);
 
-        Permission::create(['name' => 'list permissions']);
-        Permission::create(['name' => 'view permissions']);
-        Permission::create(['name' => 'create permissions']);
-        Permission::create(['name' => 'update permissions']);
-        Permission::create(['name' => 'delete permissions']);
+        Permission::firstOrCreate(['name' => 'list permissions']);
+        Permission::firstOrCreate(['name' => 'view permissions']);
+        Permission::firstOrCreate(['name' => 'create permissions']);
+        Permission::firstOrCreate(['name' => 'update permissions']);
+        Permission::firstOrCreate(['name' => 'delete permissions']);
 
-        Permission::create(['name' => 'list users']);
-        Permission::create(['name' => 'view users']);
-        Permission::create(['name' => 'create users']);
-        Permission::create(['name' => 'update users']);
-        Permission::create(['name' => 'delete users']);
+        Permission::firstOrCreate(['name' => 'list users']);
+        Permission::firstOrCreate(['name' => 'view users']);
+        Permission::firstOrCreate(['name' => 'create users']);
+        Permission::firstOrCreate(['name' => 'update users']);
+        Permission::firstOrCreate(['name' => 'delete users']);
 
         // Create admin role and assign all permissions
         $allPermissions = Permission::all();
-        $adminRole = Role::create(['name' => 'super-admin']);
+        $adminRole = Role::firstOrCreate(['name' => 'SuperAdmin']);
         $adminRole->givePermissionTo($allPermissions);
 
         $user = \App\Models\User::whereEmail('admin@admin.com')->first();
