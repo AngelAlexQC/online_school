@@ -16,7 +16,7 @@
 
         <!-- Icons -->
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" integrity="sha512-G3jAqT2eM4MMkLMyQR5YBhvN5/Da3IG6kqgYqU9zlIH4+2a+GuMdLb5Kpxy6ItMdCfgaKlo2XFhI0dHtMJjoRw==" crossorigin="anonymous"></script>
 
         @livewireStyles
@@ -48,18 +48,18 @@
         @stack('modals')
 
         @livewireScripts
-    
+
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 
         @stack('scripts')
 
         <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
-        @if (session()->has('success')) 
+        @if (session()->has('success'))
         <script>
             const notyf = new Notyf({dismissible: true})
-            notyf.success('{{ session('success') }}')
-        </script> 
+            notyf.success("{{ session('success') }}")
+        </script>
         @endif
 
         <script>

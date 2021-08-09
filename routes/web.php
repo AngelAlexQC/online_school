@@ -27,7 +27,7 @@ use App\Http\Controllers\CourseClassController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('dashboard');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])
