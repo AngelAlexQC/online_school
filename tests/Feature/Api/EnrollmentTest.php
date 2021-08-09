@@ -14,7 +14,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class EnrollmentTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {

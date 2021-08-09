@@ -13,7 +13,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CommentAdmissionAtachesTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {

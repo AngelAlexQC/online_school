@@ -11,7 +11,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SchoolControllerTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
