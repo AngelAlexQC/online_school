@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class GoogleController extends Controller
 {
@@ -31,15 +32,24 @@ class GoogleController extends Controller
         try {
 
             $user = Socialite::driver('google')->user();
-            $user = User::firstOrCreate([
-                'email' => $user->email,
-            ], [
-                'google_id' => $user->id,
-            ]);
 
-            Auth::login($user);
+            $finduser = User::where('google_id', $user->id)->first();
 
-            return redirect()->intended('dashboard');
+            if ($finduser) {
+
+                Auth::login($finduser);
+
+                return redirect()->intended('dashboard');
+            } else {
+                $newUser = User::create([
+                    'email' => $user->email,
+                    'google_id' => $user->id,
+                ]);
+                $newUser->assignRole(Role::where('name', 'Requester')->first());
+                Auth::login($newUser);
+
+                return redirect()->intended('dashboard');
+            }
         } catch (Exception $e) {
             dd($e->getMessage());
         }
