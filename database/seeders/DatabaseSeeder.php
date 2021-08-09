@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
             ]);
         $this->call(PermissionsSeeder::class);
 
-        $this->call(UserSeeder::class);
+
+
+        /* $this->call(UserSeeder::class);
         $this->call(PeriodSeeder::class);
         $this->call(CourseSeeder::class);
         $this->call(MatterSeeder::class);
@@ -42,6 +44,6 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentTaskSeeder::class);
         $this->call(StudentTaskAttachSeeder::class);
         $this->call(CommentSeeder::class);
-        $this->call(EnrollmentSeeder::class);
+        $this->call(EnrollmentSeeder::class); */
     }
 }
