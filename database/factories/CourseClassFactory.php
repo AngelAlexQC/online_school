@@ -26,6 +26,8 @@ class CourseClassFactory extends Factory
             'name' => $this->faker->name,
             'description' => $this->faker->sentence(15),
             'content' => $this->faker->text,
+            'date_start' => $this->faker->date,
+            'date_end' => $this->faker->date,
             'course_id' => \App\Models\Course::factory(),
         ];
     }

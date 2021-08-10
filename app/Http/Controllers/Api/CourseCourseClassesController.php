@@ -41,6 +41,8 @@ class CourseCourseClassesController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],
+            'date_start' => ['required', 'date'],
+            'date_end' => ['required', 'date'],
             'description' => ['required', 'max:255', 'string'],
             'content' => ['required', 'max:255', 'string'],
         ]);

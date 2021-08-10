@@ -13,11 +13,23 @@ class CourseClass extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'description', 'content', 'course_id'];
+    protected $fillable = [
+        'name',
+        'description',
+        'content',
+        'course_id',
+        'date_start',
+        'date_end',
+    ];
 
     protected $searchableFields = ['*'];
 
     protected $table = 'course_classes';
+
+    protected $casts = [
+        'date_start' => 'date',
+        'date_end' => 'date',
+    ];
 
     public function courseClassTasks()
     {

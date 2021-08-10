@@ -194,6 +194,8 @@ return [
         'show_title' => 'Show CourseClass',
         'inputs' => [
             'name' => 'Name',
+            'date_start' => 'Date Start',
+            'date_end' => 'Date End',
             'description' => 'Description',
             'content' => 'Content',
         ],

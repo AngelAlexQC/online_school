@@ -19,6 +19,8 @@ class CreateCourseClassesTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->unsignedBigInteger('course_id');
+            $table->date('date_start');
+            $table->date('date_end');
 
             $table->timestamps();
             $table->softDeletes();
