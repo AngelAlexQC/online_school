@@ -67,13 +67,19 @@ Route::middleware('auth:sanctum')
     })
     ->name('api.user');
 
+
+Route::name('api.')
+    ->group(function () {
+        Route::apiResource('schools', SchoolController::class);
+        Route::apiResource('courses', CourseController::class);
+    });
+
 Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
         Route::apiResource('roles', RoleController::class);
         Route::apiResource('permissions', PermissionController::class);
 
-        Route::apiResource('schools', SchoolController::class);
 
         // School Careers
         Route::get('/schools/{school}/careers', [
@@ -141,7 +147,7 @@ Route::name('api.')
             'store',
         ])->name('matters.courses.store');
 
-        Route::apiResource('courses', CourseController::class);
+        // Route::apiResource('courses', CourseController::class);
 
         // Course Course Classes
         Route::get('/courses/{course}/course-classes', [

@@ -13,12 +13,22 @@ use App\Http\Requests\SchoolUpdateRequest;
 class SchoolController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except('index');
+    }
+
+    /**
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', School::class);
+        // $this->authorize('view-any', School::class);
 
         $search = $request->get('search', '');
 
