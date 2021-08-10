@@ -16,8 +16,10 @@ class CreateMattersTable extends Migration
         Schema::create('matters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
+            $table->string('slug');
             $table->integer('credits');
             $table->unsignedBigInteger('level_id');
+            $table->text('description');
 
             $table->timestamps();
             $table->softDeletes();

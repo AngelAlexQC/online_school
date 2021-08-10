@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Period;
+use App\Models\School;
 use Illuminate\Database\Seeder;
 
 class PeriodSeeder extends Seeder
@@ -15,7 +16,17 @@ class PeriodSeeder extends Seeder
     public function run()
     {
         Period::factory()
-            ->count(5)
-            ->create();
+            ->create([
+                'school_id' =>  School::firstOrCreate([
+                    'name' => 'Escuelita de Prueba',
+                    'address' => 'Calle de la Prueba',
+                    'phone' => '+56912345678',
+                    'slug' => 'escuelita-de-prueba',
+                    'url' => 'http://escuelita.com',
+                ])->id,
+                'name' => 'First Period',
+                'start_date' => '2021-01-01',
+                'end_date' => '2021-12-31',
+            ]);
     }
 }

@@ -57,6 +57,10 @@ class Course extends Model
         for ($i = 0; $i < count($existents); $i++) {
             $parallel = $alphabeth[$i];
         }
-        return $this->matter->name . " - " . $parallel;
+        return $this->matter->name . " - " . $this->matter->level->number . $parallel;
+    }
+    public function getNameAttribute()
+    {
+        return $this->getParallelNameAttribute();
     }
 }

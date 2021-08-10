@@ -23,6 +23,12 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
+                            @lang('crud.courses.inputs.slug')
+                        </h5>
+                        <span>{{ $course->slug ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
                             @lang('crud.courses.inputs.matter_id')
                         </h5>
                         <span

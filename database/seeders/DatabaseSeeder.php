@@ -25,18 +25,13 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('admin'),
             ]);
         $this->call(PermissionsSeeder::class);
-        School::factory()->create([
-            'name' => 'Escuelita de Prueba',
-            'address' => 'Calle de la Prueba',
-            'phone' => '+56912345678',
-            'slug' => 'escuelita-de-prueba',
-            'url' => 'http://escuelita.com',
-        ]);
-        //$this->call(CourseSeeder::class);
+
+        //$this->call(PeriodSeeder::class);
+
+        $this->call(CourseSeeder::class);
 
 
-        $this->call(UserSeeder::class);
-        $this->call(PeriodSeeder::class);
+        /* $this->call(UserSeeder::class);
         $this->call(CourseSeeder::class);
         $this->call(MatterSeeder::class);
         $this->call(AdmissionSeeder::class);
@@ -52,6 +47,6 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentTaskSeeder::class);
         $this->call(StudentTaskAttachSeeder::class);
         $this->call(CommentSeeder::class);
-        $this->call(EnrollmentSeeder::class);
+        $this->call(EnrollmentSeeder::class); */
     }
 }

@@ -24,7 +24,9 @@ class MatterFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'slug' => $this->faker->slug,
             'credits' => $this->faker->randomNumber,
+            'description' => $this->faker->sentence(15),
             'level_id' => \App\Models\Level::factory(),
         ];
     }

@@ -11,6 +11,16 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
+        <x-inputs.text
+            name="slug"
+            label="Slug"
+            value="{{ old('slug', ($editing ? $matter->slug : '')) }}"
+            maxlength="255"
+            required
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
         <x-inputs.number
             name="credits"
             label="Credits"

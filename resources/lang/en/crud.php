@@ -127,6 +127,7 @@ return [
         'show_title' => 'Show Matter',
         'inputs' => [
             'name' => 'Name',
+            'slug' => 'Slug',
             'credits' => 'Credits',
             'level_id' => 'Level',
         ],
@@ -180,6 +181,7 @@ return [
         'show_title' => 'Show Course',
         'inputs' => [
             'name' => 'Name',
+            'slug' => 'Slug',
             'matter_id' => 'Matter',
             'period_id' => 'Period',
         ],

@@ -25,6 +25,7 @@ class CourseStoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255', 'string'],
+            'slug' => ['required', 'max:255', 'string'],
             'matter_id' => ['required', 'exists:matters,id'],
             'period_id' => ['required', 'exists:periods,id'],
         ];

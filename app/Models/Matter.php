@@ -13,7 +13,13 @@ class Matter extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'credits', 'level_id'];
+    protected $fillable = [
+        'name',
+        'slug',
+        'credits',
+        'level_id',
+        'description',
+    ];
 
     protected $searchableFields = ['*'];
 

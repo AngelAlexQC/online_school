@@ -23,6 +23,12 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
+                            @lang('crud.matters.inputs.slug')
+                        </h5>
+                        <span>{{ $matter->slug ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
                             @lang('crud.matters.inputs.credits')
                         </h5>
                         <span>{{ $matter->credits ?? '-' }}</span>

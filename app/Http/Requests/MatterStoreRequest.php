@@ -25,6 +25,7 @@ class MatterStoreRequest extends FormRequest
     {
         return [
             'name' => ['nullable', 'max:255', 'string'],
+            'slug' => ['required', 'max:255', 'string'],
             'credits' => ['required', 'numeric'],
             'level_id' => ['required', 'exists:levels,id'],
         ];

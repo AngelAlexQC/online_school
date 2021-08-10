@@ -19,6 +19,7 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('matter_id');
             $table->unsignedBigInteger('period_id');
             $table->unsignedBigInteger('teacher_id');
+            $table->string('slug');
 
             $table->timestamps();
             $table->softDeletes();

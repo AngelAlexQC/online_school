@@ -12,6 +12,16 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
+        <x-inputs.text
+            name="slug"
+            label="Slug"
+            value="{{ old('slug', ($editing ? $course->slug : '')) }}"
+            maxlength="255"
+            required
+        ></x-inputs.text>
+    </x-inputs.group>
+
+    <x-inputs.group class="w-full">
         <x-inputs.select name="matter_id" label="Matter" required>
             @php $selected = old('matter_id', ($editing ? $course->matter_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Matter</option>

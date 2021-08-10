@@ -24,6 +24,7 @@ class CourseFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'slug' => $this->faker->slug,
             'matter_id' => \App\Models\Matter::factory(),
             'period_id' => \App\Models\Period::factory(),
             'teacher_id' => \App\Models\User::factory(),
