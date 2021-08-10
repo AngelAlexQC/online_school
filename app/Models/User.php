@@ -39,8 +39,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['name'];
-
     public function comments()
     {
         return $this->hasMany(Comment::class, 'author_id');
@@ -69,9 +67,5 @@ class User extends Authenticatable
     public function isSuperAdmin()
     {
         return $this->hasRole('super-admin');
-    }
-    public function getNameAttribute()
-    {
-        return $this->first_name . ' ' . $this->last_name;
     }
 }

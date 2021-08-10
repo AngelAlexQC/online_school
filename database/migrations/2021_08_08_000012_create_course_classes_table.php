@@ -21,6 +21,7 @@ class CreateCourseClassesTable extends Migration
             $table->unsignedBigInteger('course_id');
             $table->date('date_start');
             $table->date('date_end');
+            $table->integer('number');
 
             $table->timestamps();
             $table->softDeletes();

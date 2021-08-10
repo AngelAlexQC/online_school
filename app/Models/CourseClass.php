@@ -20,6 +20,7 @@ class CourseClass extends Model
         'course_id',
         'date_start',
         'date_end',
+        'number',
     ];
 
     protected $searchableFields = ['*'];

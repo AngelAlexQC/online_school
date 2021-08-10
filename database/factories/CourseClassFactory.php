@@ -28,6 +28,7 @@ class CourseClassFactory extends Factory
             'content' => $this->faker->text,
             'date_start' => $this->faker->date,
             'date_end' => $this->faker->date,
+            'number' => $this->faker->randomNumber,
             'course_id' => \App\Models\Course::factory(),
         ];
     }
