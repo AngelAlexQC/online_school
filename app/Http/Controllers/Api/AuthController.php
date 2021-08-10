@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
@@ -20,7 +22,7 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (!auth()->attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             throw ValidationException::withMessages([
                 'email' => [trans('auth.failed')],
             ]);
