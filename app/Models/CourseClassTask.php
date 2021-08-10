@@ -16,6 +16,7 @@ class CourseClassTask extends Model
     protected $fillable = [
         'course_class_id',
         'name',
+        'description',
         'content',
         'file',
         'score',

@@ -13,7 +13,7 @@ class Course extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'matter_id', 'period_id', 'teacher_id'];
+    protected $fillable = ['name', 'matter_id', 'period_id', 'teacher_id', 'description', 'credits'];
     protected $appends = ['parallel_name'];
 
     protected $searchableFields = ['*'];

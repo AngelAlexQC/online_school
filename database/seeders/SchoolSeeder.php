@@ -14,8 +14,12 @@ class SchoolSeeder extends Seeder
      */
     public function run()
     {
-        School::factory()
-            ->count(5)
-            ->create();
+        School::firstOrCreate([
+            'name' => 'Escuelita de Prueba',
+            'address' => 'Calle de la Prueba',
+            'phone' => '+593987654321',
+            'slug' => 'escuelita-de-prueba',
+            'url' => 'http://escuelita.com',
+        ]);
     }
 }

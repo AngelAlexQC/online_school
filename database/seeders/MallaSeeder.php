@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Malla;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class MallaSeeder extends Seeder
@@ -14,8 +15,10 @@ class MallaSeeder extends Seeder
      */
     public function run()
     {
-        Malla::factory()
-            ->count(5)
-            ->create();
+        Malla::firstOrCreate([
+            'name' => 'Primaria Básica',
+            'year' => Carbon::now()->year,
+            'career_id' => 1,
+        ]);
     }
 }

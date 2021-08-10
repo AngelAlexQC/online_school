@@ -15,18 +15,18 @@ class PeriodSeeder extends Seeder
      */
     public function run()
     {
-        Period::factory()
-            ->create([
-                'school_id' =>  School::firstOrCreate([
-                    'name' => 'Escuelita de Prueba',
-                    'address' => 'Calle de la Prueba',
-                    'phone' => '+56912345678',
-                    'slug' => 'escuelita-de-prueba',
-                    'url' => 'http://escuelita.com',
-                ])->id,
-                'name' => 'First Period',
-                'start_date' => '2021-01-01',
-                'end_date' => '2021-12-31',
-            ]);
+        Period::firstOrCreate([
+            'school_id' =>  School::firstOrCreate([
+                'name' => 'Escuelita de Prueba',
+                'address' => 'Calle de la Prueba',
+                'phone' => '+593987654321',
+                'slug' => 'escuelita-de-prueba',
+                'url' => 'http://escuelita.com',
+            ])->id,
+            'name' => 'First Period',
+            'start_date' => '2021-01-01',
+            'end_date' => '2021-12-31',
+            'status' => true,
+        ]);
     }
 }

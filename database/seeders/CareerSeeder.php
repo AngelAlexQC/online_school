@@ -14,8 +14,10 @@ class CareerSeeder extends Seeder
      */
     public function run()
     {
-        Career::factory()
-            ->count(5)
-            ->create();
+        Career::firstOrCreate([
+            'name' => 'Primaria Básica',
+            'description' => 'La primaria básica es la primera etapa de la eduación donde se cursan las asignaturas básicas.',
+            'school_id' => 1
+        ]);
     }
 }

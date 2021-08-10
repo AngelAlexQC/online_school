@@ -14,8 +14,10 @@ class LevelSeeder extends Seeder
      */
     public function run()
     {
-        Level::factory()
-            ->count(5)
-            ->create();
+        Level::firstOrCreate([
+            'name' => 1 . 'º de Básica',
+            'number' => 1,
+            'malla_id' => 1,
+        ]);
     }
 }
