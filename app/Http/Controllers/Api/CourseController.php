@@ -31,7 +31,7 @@ class CourseController extends Controller
 
         $search = $request->get('search', '');
 
-        $courses = Course::search($search)
+        $courses = Course::with(['teacher', 'enrollments.student'])->search($search)
             ->latest()
             ->paginate();
 

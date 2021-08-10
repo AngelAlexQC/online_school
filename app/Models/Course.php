@@ -14,6 +14,7 @@ class Course extends Model
     use Searchable;
 
     protected $fillable = ['name', 'matter_id', 'period_id', 'teacher_id'];
+    protected $appends = ['parallel_name'];
 
     protected $searchableFields = ['*'];
 
@@ -40,5 +41,26 @@ class Course extends Model
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');
+    }
+
+    public function getParallelNameAttribute()
+    {
+        $parallel = 'A';
+        $existents = Course::where(
+            'period_id',
+            $this->period_id
+        )->where(
+            'matter_id',
+            $this->matter_id
+        )->get();
+        $alphabeth = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for ($i = 0; $i < count($existents); $i++) {
+            $parallel = $alphabeth[$i];
+        }
+        return $this->matter->name . " - " . $parallel;
+    }
+    public function getNameAttribute()
+    {
+        return $this->matter->name;
     }
 }
