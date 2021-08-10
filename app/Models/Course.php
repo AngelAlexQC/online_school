@@ -59,8 +59,4 @@ class Course extends Model
         }
         return $this->matter->name . " - " . $parallel;
     }
-    public function getNameAttribute()
-    {
-        return $this->matter->name;
-    }
 }
