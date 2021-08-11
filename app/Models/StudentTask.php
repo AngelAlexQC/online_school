@@ -11,7 +11,10 @@ class StudentTask extends Model
     use HasFactory;
     use Searchable;
 
-    protected $fillable = ['name', 'student_id', 'task_id'];
+    protected $fillable = [
+        'name',
+        'score', 'status', 'student_id', 'task_id'
+    ];
 
     protected $searchableFields = ['*'];
 

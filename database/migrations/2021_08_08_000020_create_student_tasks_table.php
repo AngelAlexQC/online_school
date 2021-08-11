@@ -16,6 +16,8 @@ class CreateStudentTasksTable extends Migration
         Schema::create('student_tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->boolean('status')->default(false);
+            $table->unsignedInteger('score')->default(0);
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('task_id');
 

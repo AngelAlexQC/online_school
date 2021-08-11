@@ -15,6 +15,26 @@ class Enrollment extends Model
 
     protected $searchableFields = ['*'];
 
+    protected $appends = ['student_tasks'];
+
+    public static function boot()
+    {
+
+        parent::boot();
+
+        static::created(function (Enrollment $enrollment) {
+            $course = $enrollment->course;
+            $course->courseClasses->each(function ($courseClass) use ($enrollment) {
+                $courseClass->courseClassTasks->each(function ($courseClassTask) use ($enrollment) {
+                    StudentTask::firstOrCreate([
+                        'student_id' => $enrollment->student_id,
+                        'task_id' => $courseClassTask->id,
+                        'name' => $courseClassTask->name,
+                    ]);
+                });
+            });
+        });
+    }
     public function student()
     {
         return $this->belongsTo(User::class, 'student_id');
@@ -28,5 +48,10 @@ class Enrollment extends Model
     public function allAssistances()
     {
         return $this->hasMany(Assistances::class, 'student_id');
+    }
+
+    public function getStudentTasksAttribute()
+    {
+        return StudentTask::where('student_id', $this->student_id)->get();
     }
 }
