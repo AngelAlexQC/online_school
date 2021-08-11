@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('google_id')->nullable();
             $table->string('remember_token', 100)->nullable();
             $table->foreignId('current_team_id')->nullable();
-            $table->text('profile_photo_path')->nullable();
+            $table->string('profile_photo_path')->default('https://i.pravatar.cc/300');
 
             $table->timestamps();
             $table->softDeletes();
