@@ -63,6 +63,8 @@ class UserStudentTasksController extends Controller
         $studentTask = StudentTask::find($request->studentTask);
         $studentTask->update(['status' => true]);
         $studentTask->update($validated);
-        return new StudentTaskResource($studentTask);
+        return new StudentTaskResource($studentTask->load([
+            'task.courseClass.course'
+        ]));
     }
 }
