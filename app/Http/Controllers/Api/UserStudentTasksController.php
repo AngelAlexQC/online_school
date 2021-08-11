@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\StudentTaskResource;
 use App\Http\Resources\StudentTaskCollection;
+use App\Models\StudentTask;
 
 class UserStudentTasksController extends Controller
 {
@@ -45,6 +46,23 @@ class UserStudentTasksController extends Controller
 
         $studentTask = $user->studentTasks()->create($validated);
 
+        return new StudentTaskResource($studentTask);
+    }
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        $this->authorize('update', StudentTask::class);
+        $validated = $request->validate([
+            'name' => ['required', 'max:255', 'string'],
+            'score' => ['required', 'numeric']
+        ]);
+        $studentTask = StudentTask::find($request->studentTask);
+        $studentTask->update(['status' => true]);
+        $studentTask->update($validated);
         return new StudentTaskResource($studentTask);
     }
 }

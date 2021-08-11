@@ -266,6 +266,10 @@ Route::name('api.')
             UserStudentTasksController::class,
             'store',
         ])->name('users.student-tasks.store');
+        Route::put('/users/{user}/student-tasks/{studentTask}', [
+            UserStudentTasksController::class,
+            'update',
+        ])->name('users.student-tasks.update');
 
         // User Enrollments
         Route::get('/users/{user}/enrollments', [
