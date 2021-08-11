@@ -14,7 +14,7 @@ class Course extends Model
     use Searchable;
 
     protected $fillable = ['name', 'matter_id', 'period_id', 'teacher_id', 'description', 'credits'];
-    protected $appends = ['parallel_name'];
+    protected $appends = ['parallel_name', 'tasks'];
 
     protected $searchableFields = ['*'];
 
@@ -41,6 +41,15 @@ class Course extends Model
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');
+    }
+
+    public function getTasksAttribute()
+    {
+        return $this->courseClasses
+            ->load('courseClassTasks')
+            ->flatMap(function ($courseClass) {
+                return $courseClass->courseClassTasks;
+            });
     }
 
     public function getParallelNameAttribute()

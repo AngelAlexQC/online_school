@@ -63,7 +63,11 @@ class CourseController extends Controller
         $this->authorize('view', $course);
 
         return new CourseResource($course->load([
-            'courseClasses.courseClassTasks', 'enrollments.student', 'teacher', 'period', 'matter'
+            'courseClasses.courseClassTasks',
+            'enrollments.student',
+            'teacher',
+            'period',
+            'matter'
         ]));
     }
 
