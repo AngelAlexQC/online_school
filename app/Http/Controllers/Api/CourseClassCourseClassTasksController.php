@@ -42,6 +42,7 @@ class CourseClassCourseClassTasksController extends Controller
         $validated = $request->validate([
             'name' => ['nullable', 'max:255', 'string'],
             'content' => ['required', 'max:255', 'string'],
+            'description' => ['required'],
             'file' => ['nullable', 'file'],
             'score' => ['required', 'numeric'],
         ]);

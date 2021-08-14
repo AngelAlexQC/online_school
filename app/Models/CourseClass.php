@@ -51,4 +51,29 @@ class CourseClass extends Model
     {
         return $this->hasMany(ClassComment::class);
     }
+
+    public function getNameAttribute()
+    {
+        return "Clase #" . $this->number;
+    }
+
+    public function getNumberAttribute()
+    {
+        $number = 1;
+        $courseClasses = CourseClass::where('course_id', $this->course_id)
+            ->orderBy('date_start', 'asc')
+            ->get();
+        // Get my position in the list
+        foreach ($courseClasses as $courseClass) {
+            if ($courseClass->id == $this->id) {
+                break;
+            }
+            $number++;
+        }
+        return $number;
+    }
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('date_start', 'asc')->get();
+    }
 }

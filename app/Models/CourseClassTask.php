@@ -35,4 +35,23 @@ class CourseClassTask extends Model
     {
         return $this->hasMany(StudentTask::class, 'task_id');
     }
+
+    public function getNameAttribute()
+    {
+        return "Tarea #" . $this->courseClass->number . " de la Clase #" . $this->number;
+    }
+    public function getNumberAttribute()
+    {
+        $number = 1;
+        $courseClassTasks = CourseClassTask::where('course_class_id', $this->course_class_id)
+            ->get();
+        // Get my position in the list
+        foreach ($courseClassTasks as $task) {
+            if ($task->id == $this->id) {
+                break;
+            }
+            $number++;
+        }
+        return $number;
+    }
 }
