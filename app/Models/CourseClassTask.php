@@ -38,7 +38,7 @@ class CourseClassTask extends Model
 
     public function getNameAttribute()
     {
-        return "Tarea #" . $this->courseClass->number . " de la Clase #" . $this->number;
+        return "Tarea #" . $this->number . " de la Clase #" . $this->courseClass->number;
     }
     public function getNumberAttribute()
     {
@@ -53,5 +53,21 @@ class CourseClassTask extends Model
             $number++;
         }
         return $number;
+    }
+
+    public static function boot()
+    {
+
+        parent::boot();
+
+        static::created(function (CourseClassTask $task) {
+            foreach ($task->courseClass->course->enrollments as $enrollment) {
+                StudentTask::firstOrCreate([
+                    'student_id' => $enrollment->student_id,
+                    'task_id' => $task->id,
+                    'name' => $task->name,
+                ]);
+            }
+        });
     }
 }

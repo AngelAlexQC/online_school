@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Scopes\Searchable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -75,5 +76,19 @@ class CourseClass extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('date_start', 'asc')->get();
+    }
+    public static function boot()
+    {
+
+        parent::boot();
+
+        static::created(function (CourseClass $courseClass) {
+            CourseClassTask::create([
+                'course_class_id' => $courseClass->id,
+                'name' => 'Inicio',
+                'description' => '',
+                'content' => '',
+            ]);
+        });
     }
 }

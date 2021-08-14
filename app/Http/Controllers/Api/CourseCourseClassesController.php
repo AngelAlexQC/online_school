@@ -40,7 +40,7 @@ class CourseCourseClassesController extends Controller
         $this->authorize('create', CourseClass::class);
 
         $validated = $request->validate([
-            'name' => ['required', 'max:255', 'string'],
+            'name' => ['nullable', 'max:255', 'string'],
             'date_start' => ['nullable', 'date'],
             'date_end' => ['nullable', 'date'],
             'description' => ['nullable', 'max:255', 'string'],
