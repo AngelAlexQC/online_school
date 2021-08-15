@@ -85,6 +85,6 @@ class CourseClassController extends Controller
 
         $courseClass->delete();
 
-        return response()->noContent();
+        return response()->json($courseClass);
     }
 }

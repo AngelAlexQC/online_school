@@ -58,7 +58,7 @@ Route::post('/upload', function (Request $request) {
     $request->file('file')->move($path, $filename);
     // Return the path of the uploaded file
     $url = url('/uploads/' . $filename);
-    return $url;
+    return response()->json(['link' => $url]);
 });
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
