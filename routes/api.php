@@ -170,6 +170,7 @@ Route::name('api.')
         ])->name('courses.enrollments.store');
 
         Route::apiResource('admissions', AdmissionController::class);
+        Route::apiResource('tasks', CourseClassTaskController::class);
 
         // Admission Admission Ataches
         Route::get('/admissions/{admission}/admission-ataches', [

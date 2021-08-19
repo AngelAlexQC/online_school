@@ -18,6 +18,7 @@ class CreateCourseClassTasksTable extends Migration
             $table->unsignedBigInteger('course_class_id');
             $table->unsignedInteger('credits')->default(10);
             $table->string('name')->nullable();
+            $table->dateTime('endline')->nullable();
             $table->text('content');
             $table->text('description');
             $table->string('file')->nullable();

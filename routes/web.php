@@ -11,6 +11,7 @@ use App\Http\Controllers\MatterController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\Api\CourseClassTaskController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\CourseClassController;
