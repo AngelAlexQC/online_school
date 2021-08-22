@@ -70,6 +70,7 @@ Route::middleware('auth:sanctum')
 
 Route::name('api.')
     ->group(function () {
+        Route::apiResource('users', UserController::class);
         Route::apiResource('schools', SchoolController::class);
         Route::apiResource('courses', CourseController::class);
     });
@@ -236,7 +237,6 @@ Route::name('api.')
             'store',
         ])->name('comments.student-task-attaches.store');
 
-        Route::apiResource('users', UserController::class);
 
         // User Comments
         Route::get('/users/{user}/comments', [

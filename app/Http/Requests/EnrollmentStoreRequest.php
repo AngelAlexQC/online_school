@@ -24,7 +24,7 @@ class EnrollmentStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255', 'string'],
+            'name' => ['nullable', 'string'],
             'student_id' => ['required', 'exists:users,id'],
             'course_id' => ['required', 'exists:courses,id'],
         ];

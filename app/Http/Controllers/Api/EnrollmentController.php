@@ -13,6 +13,15 @@ use App\Http\Requests\EnrollmentUpdateRequest;
 class EnrollmentController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except('index');
+    }
+    /**
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */

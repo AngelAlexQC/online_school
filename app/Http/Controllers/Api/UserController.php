@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', User::class);
+        // $this->authorize('view-any', User::class);
 
         $search = $request->get('search', '');
 
