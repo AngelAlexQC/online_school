@@ -46,7 +46,7 @@ class CourseClassTaskController extends Controller
         ]);
 
         // Create a new task
-        $courseClassTask = new CourseClassTask;
+        $courseClassTask = new CourseClassTask();
         $courseClassTask->name = $request->name;
         $courseClassTask->description = $request->description;
         $courseClassTask->endline = $request->endline;

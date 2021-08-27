@@ -19,7 +19,6 @@ class Enrollment extends Model
 
     public static function boot()
     {
-
         parent::boot();
 
         static::created(function (Enrollment $enrollment) {
@@ -35,6 +34,12 @@ class Enrollment extends Model
             });
         });
     }
+
+    public function getNameAttribute()
+    {
+        return $this->student->name;
+    }
+
     public function student()
     {
         return $this->belongsTo(User::class, 'student_id');

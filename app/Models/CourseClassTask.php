@@ -57,7 +57,6 @@ class CourseClassTask extends Model
 
     public static function boot()
     {
-
         parent::boot();
 
         static::created(function (CourseClassTask $task) {
